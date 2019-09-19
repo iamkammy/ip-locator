@@ -1,0 +1,45 @@
+<div class="container">
+
+
+  <div class="mb-3 w-75  text-center mx-auto mt-5" >
+  
+  
+   <div class="form-group">
+      <h3 class="text-info">{{title}}</h3>
+    <input name="iplocation" type="text" class="form-control  inpbox" (blur)="isRemovePlace = false" (focus)="isRemovePlace = true" (keyup.enter)="postval($event)" id="ip"  [attr.placeholder]="!isRemovePlace ? '192.168.0.42': null">
+  </div>
+  
+    <a id="mylocation" class="btn btn-warning" routerLink="/mylocation">Find My location</a>
+  
+  </div>
+  
+  <div class="row kam d-flex flex-wrap" >
+    <div class="col-md-6 col-sm-12 col-xs-12" *ngIf="data">
+        <div class="output list-group" *ngIf="data">
+            <h3 class="list-group-item list-group-item-action">IP Address: {{ data.address}}</h3>
+            <p *ngIf="data.city_names['en']" class="list-group-item list-group-item-action">City: {{ data.city_names['en']}}</p>
+            <p *ngIf="data.country_names" class="list-group-item list-group-item-action">Country: {{ data.country_names['en'] + '  (' + data.country + ')'}} </p>
+            <p *ngIf="data.region" class="list-group-item list-group-item-action">Region: {{data.region}} </p>
+            <p  *ngIf="data.time_zone" class="list-group-item list-group-item-action">Time Zone: {{data.time_zone}}</p>
+            <p *ngIf="data.as.name" class="list-group-item list-group-item-action">Travelled Through Network: {{data.as.name}}</p>
+            <!-- <app-map [data]="data"></app-map> -->
+          </div>
+    </div>
+  
+    <div class="col-md-6 showmap col-sm-12 col-xs-12"  *ngIf="data">
+        
+            <agm-map style="height: 100%" [latitude]="data.latitude" [longitude]="data.longitude">
+                <agm-marker [latitude]="data.latitude" [longitude]="data.longitude"></agm-marker>
+              </agm-map>
+        
+    </div>
+  
+  </div>
+  
+  <!--  loader image code  -->
+    <div class="loader" *ngIf="isLoading">
+      <img src="../assets/icons/loader.gif" class="img-responsive" alt="">
+    </div>
+  <!--  -->
+  
+  </div>

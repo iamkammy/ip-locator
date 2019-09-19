@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { LocatorService } from './services/locator.service';
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent implements OnInit {
- 
-  data:any;
+import { LocatorService } from 'src/app/services/locator.service';
 
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+  title = 'Locate IP Address';
+  data:any;
   
   isLoading:boolean = false;
   isRemovePlace = false;
-  constructor(private locator: LocatorService) {}
-  ngOnInit(){
+  
+  constructor(private locator: LocatorService) { }
+
+  ngOnInit() {
     console.log('oninit is called');  
   }
-
 
   postval(e){
     this.isLoading = true;
@@ -45,6 +46,5 @@ export class AppComponent implements OnInit {
     });
 
   }
-
 
 }

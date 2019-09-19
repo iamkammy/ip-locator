@@ -6,10 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MapComponent } from './components/map/map.component';
 import { AgmCoreModule} from '@agm/core';
+import { MylocationComponent } from './components/mylocation/mylocation.component';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    MylocationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

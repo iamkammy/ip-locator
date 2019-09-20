@@ -8,12 +8,14 @@ import { MapComponent } from './components/map/map.component';
 import { AgmCoreModule} from '@agm/core';
 import { MylocationComponent } from './components/mylocation/mylocation.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     MylocationComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

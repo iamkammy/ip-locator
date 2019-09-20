@@ -11,14 +11,16 @@ long:any;
   constructor() { }
 
   ngOnInit() {
-
    this.getLocation();
   }
 
   getLocation(){
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-          console.log(position);
+          this.lat = position.coords.latitude;
+          this.long = position.coords.longitude;
+          console.log(position, "from position");
+
         });
       } else {
         console.log('Geolocation is not supported by this browser.');
